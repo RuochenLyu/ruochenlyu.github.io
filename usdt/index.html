@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>火币 USDT 价格</title>
+  <link rel="stylesheet" href="./lib/highcharts.css" type="text/css">
+  <script src="./lib/jquery-3.3.1.min.js"></script>
+  <script src="./lib/highcharts.js"></script>
+  <script src="./lib/highcharts.data.js"></script>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script>
+  $.ajax({
+    url: './data.csv',
+    success: function(csv) {
+      Highcharts.chart('container', {
+        chart: {
+          type: 'spline'
+        },
+        data: {
+          csv: csv.replace(/\n\n/g, '\n')
+        },
+        title: {
+          text: '火币 USDT / CNY 每日价格'
+        },
+        subtitle: {
+          text: 'Source: otc.huobipro.com'
+        },
+        xAxis: {
+          type: 'datetime'
+        },
+        yAxis: [{
+          title: {
+            text: null
+          },
+          labels: {
+            align: 'left',
+            x: 3,
+            y: 16
+          },
+          showFirstLabel: false
+        }, {
+          linkedTo: 0,
+          gridLineWidth: 0,
+          opposite: true,
+          title: {
+            text: null
+          },
+          labels: {
+            align: 'right',
+            x: -3,
+            y: 16
+          },
+          showFirstLabel: false
+        }],
+
+        legend: {
+          align: 'left',
+          verticalAlign: 'top',
+          borderWidth: 0
+        },
+
+        tooltip: {
+          shared: true,
+          crosshairs: true
+        }
+      })
+    }
+  })
+  </script>
+</body>
+</html>
