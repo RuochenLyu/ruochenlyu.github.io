@@ -20,7 +20,7 @@
     success: function(csv) {
       Highcharts.chart('container', {
         chart: {
-          type: 'spline'
+          zoomType: 'x'
         },
         data: {
           csv: csv.replace(/\n\n/g, '\n')
@@ -58,6 +58,14 @@
           },
           showFirstLabel: false
         }],
+
+        plotOptions: {
+          line: {
+            marker: {
+              enabled: false
+            }
+          }
+        },
 
         legend: {
           align: 'left',
