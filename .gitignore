@@ -1,3 +1,4 @@
 usdt/schedule/
 *.log
-itchat.pkl
+huobipro_notice/itchat.pkl
+huobipro_notice/notice.json
