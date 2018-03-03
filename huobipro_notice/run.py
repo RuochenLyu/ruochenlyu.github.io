@@ -9,6 +9,7 @@ import jieba.analyse
 import itchat
 
 def send_message(message):
+  print('Send to wechat.')
   # test = itchat.search_friends(nickName='吕若尘')[0]
   # test.send(message)
   chatroom_id = itchat.get_chatrooms()[0]['UserName']
@@ -49,4 +50,6 @@ while True:
 
   with open('notice.json', 'w') as outfile:
     json.dump(data, outfile)
+    print('Write the file.')
   time.sleep(10*60)
+  print('Do it again.')
