@@ -51,5 +51,5 @@ while True:
   with open('notice.json', 'w') as outfile:
     json.dump(data, outfile)
     print('Write the file.')
-  time.sleep(10*60)
+  time.sleep(1*60)
   print('Do it again.')
