@@ -15,6 +15,7 @@ def send_message(message):
   # test.send(message)
   chatroom_id = itchat.get_chatrooms()[0]['UserName']
   itchat.send(message, toUserName=chatroom_id)
+  print('------------------------------------------')
 
 def process_data(item):
   content = re.sub('[0-9]', '', item['title'])
@@ -61,5 +62,6 @@ while 1:
   with open('notice.json', 'w') as outfile:
     json.dump(data, outfile)
     print(datetime.datetime.now(), '\nWrite the file.')
+  print('Sleep...')
   time.sleep(1*60)
   print('Do it again.')
