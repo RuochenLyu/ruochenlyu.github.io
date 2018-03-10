@@ -63,5 +63,5 @@ while 1:
     json.dump(data, outfile)
     print(datetime.datetime.now(), '\nWrite the file.')
   print('Sleep...')
-  time.sleep(1*60)
+  time.sleep(1*15)
   print('Do it again.')
