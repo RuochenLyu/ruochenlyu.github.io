@@ -12,7 +12,7 @@ def process_data(data):
   quote_currency = [x for x in symbols if x['base-currency'] == base_currency]
 
   if quote_currency == []: return
-  print(quote_currency[0]['symbol'])
+  print(quote_currency[0]['base-currency'])
 
 
 symbols = json.load(open('symbols.json'))['data']

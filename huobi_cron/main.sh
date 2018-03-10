@@ -1,8 +1,8 @@
 #!/bin/bash
 
-symbol=`python3 peep.py`
+currency=`python3 peep.py`
 
-if [ ${symbol} ];then
-  echo ${symbol}
-  ruby temp.rb ${symbol}
+if [ ${currency} ];then
+  echo ${currency}
+  ruby ~/Documents/hadax_demo/open_a_position.rb ${HUOBI_KEY} ${HUOBI_SECRET} ${HUOBI_ID} ${currency}
 fi
