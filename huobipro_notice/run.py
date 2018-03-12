@@ -42,7 +42,7 @@ print('Hey, bro!')
 jieba.analyse.set_stop_words('./extra_dict/stop_words.txt')
 itchat.auto_login(hotReload=True, enableCmdQR=2)
 
-data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=1&language=zh-cn').json()
+data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=3&language=zh-cn').json()
 data = data['data']['items']
 with open('notice.json', 'w') as outfile:
   json.dump(data, outfile)
@@ -50,7 +50,7 @@ with open('notice.json', 'w') as outfile:
 while 1:
   symbols = json.load(open('symbols.json'))['data']
   local_data = json.load(open('notice.json'))
-  data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=1&language=zh-cn').json()
+  data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=3&language=zh-cn').json()
   if not data: continue
   data = data['data']['items']
   print(datetime.datetime.now(), '\nGet data.')
