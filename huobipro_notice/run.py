@@ -11,10 +11,10 @@ import itchat
 
 def send_message(message):
   print(datetime.datetime.now(), '\nSend to wechat.')
-  test = itchat.search_friends(nickName='吕若尘')[0]
-  test.send(message)
-  # chatroom_id = itchat.get_chatrooms()[0]['UserName']
-  # itchat.send(message, toUserName=chatroom_id)
+  # test = itchat.search_friends(nickName='吕若尘')[0]
+  # test.send(message)
+  chatroom_id = itchat.get_chatrooms()[0]['UserName']
+  itchat.send(message, toUserName=chatroom_id)
   print('------------------------------------------')
 
 def process_data(item):
@@ -42,26 +42,26 @@ print('Hey, bro!')
 jieba.analyse.set_stop_words('./extra_dict/stop_words.txt')
 itchat.auto_login(hotReload=True, enableCmdQR=2)
 
-data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()
-data = data['data']['items']
+url = 'https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn'
+data = requests.get(url=url).json()['data']['items']
 with open('notice.json', 'w') as outfile:
   json.dump(data, outfile)
 
+symbols = json.load(open('symbols.json'))['data']
+
 while 1:
-  symbols = json.load(open('symbols.json'))['data']
   local_data = json.load(open('notice.json'))
-  data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()
-  if not data: continue
-  data = data['data']['items']
+  data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()['data']['items']
   print(datetime.datetime.now(), '\nGet data.')
+
+  with open('notice.json', 'w') as outfile:
+    json.dump(data, outfile)
+    print(datetime.datetime.now(), '\nWrite the file.')
 
   for item in data:
     if [x for x in local_data if x['id'] == item['id']] != []: continue
     process_data(item)
 
-  with open('notice.json', 'w') as outfile:
-    json.dump(data, outfile)
-    print(datetime.datetime.now(), '\nWrite the file.')
   print('Sleep...')
   time.sleep(1*15)
   print('Do it again.')
