@@ -42,26 +42,17 @@ print('Hey, bro!')
 jieba.analyse.set_stop_words('./extra_dict/stop_words.txt')
 itchat.auto_login(hotReload=True, enableCmdQR=2)
 
-url = 'https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn'
-data = requests.get(url=url).json()['data']['items']
-with open('notice.json', 'w') as outfile:
-  json.dump(data, outfile)
-
 symbols = json.load(open('symbols.json'))['data']
+interval = 15
 
 while 1:
-  local_data = json.load(open('notice.json'))
   data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()['data']['items']
   print(datetime.datetime.now(), '\nGet data.')
 
-  with open('notice.json', 'w') as outfile:
-    json.dump(data, outfile)
-    print(datetime.datetime.now(), '\nWrite the file.')
-
   for item in data:
-    if [x for x in local_data if x['id'] == item['id']] != []: continue
+    if time.time() - item['created']/1000 > interval: continue
     process_data(item)
 
   print('Sleep...')
-  time.sleep(1*15)
+  time.sleep(1*interval)
   print('Do it again.')
