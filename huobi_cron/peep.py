@@ -3,6 +3,7 @@
 import requests
 import json
 import re
+import time
 
 def process_data(data):
   match = re.search(r'([a-zA-Z]{2,4})\/USDT', data['title'])
@@ -16,11 +17,10 @@ def process_data(data):
 
 
 symbols = json.load(open('symbols.json'))['data']
-local_data = json.load(open('notice.json'))
-data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=1&language=zh-cn').json()['data']['items'][0]
+data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()['data']['items']
+interval = 10
 
-if local_data['id'] == data['id']:
-  process_data(data)
-
-  with open('notice.json', 'w') as outfile:
-    json.dump(data, outfile)
+for item in data:
+  print(time.time() - item['created']/1000)
+  if time.time() - item['created']/1000 > interval: continue
+  process_data(item)
