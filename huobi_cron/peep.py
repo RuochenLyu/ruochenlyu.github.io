@@ -21,6 +21,5 @@ data = requests.get(url='https://www.huobi.com/p/api/contents/pro/list_notice?li
 interval = 10
 
 for item in data:
-  print(time.time() - item['created']/1000)
   if time.time() - item['created']/1000 > interval: continue
   process_data(item)
