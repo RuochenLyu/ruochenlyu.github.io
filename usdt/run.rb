@@ -8,7 +8,7 @@ response_price = `curl --request GET --url 'https://otc-api.huobipro.com/v1/otc/
 
 CSV.open('data.csv', 'a+') do |csv|
   csv << [
-    DateTime.parse(DateTime.now.strftime("%Y-%m-%dT%H:00%z")),
+    DateTime.parse(DateTime.now.strftime("%Y-%m-%dT%H:%M%z")),
     JSON.parse(response_buy)['data'][0]['fixedPrice'],
     JSON.parse(response_sell)['data'][0]['fixedPrice'],
     JSON.parse(response_price)['data'][2]['price']
