@@ -11,6 +11,8 @@ base_price = nil
 if Time.new.min == 0
   response_price = `curl --request GET --url 'http://www.apilayer.net/api/live?access_key=2fc9d3a4761e1c3cacbd2f6e0f6f205f&format=1&currencies=CNY' --header 'Cache-Control: no-cache'`
   base_price = JSON.parse(response_price)['quotes']['USDCNY']
+else
+  base_price = CSV.open('data.csv').readlines[-1][3]
 end
 
 CSV.open('data.csv', 'a+') do |csv|
