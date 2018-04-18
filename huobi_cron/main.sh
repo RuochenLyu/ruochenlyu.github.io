@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export https_proxy=http://127.0.0.1:8888;export http_proxy=http://127.0.0.1:8888
-currency=`python3 peep.py`
+currency=`python3 ./peep.py`
 
 if [ ${currency} ];then
   echo ${currency}
