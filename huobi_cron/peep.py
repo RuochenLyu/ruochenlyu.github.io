@@ -18,7 +18,7 @@ def process_data(data):
 
 symbols = json.load(open('symbols.json'))['data']
 data = requests.get(url='https://content.huobi.pro/p/api/contents/pro/list_notice?limit=10&language=zh-cn').json()['data']['items']
-interval = 10
+interval = 15
 
 for item in data:
   if time.time() - item['created']/1000 > interval: continue
