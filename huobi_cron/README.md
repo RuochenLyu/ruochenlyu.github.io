@@ -4,9 +4,17 @@
 
 <https://api.huobipro.com/v1/settings/symbols>
 
-<https://api.huobipro.com/v1/margin/symbols>
+<https://www.huobipro.com/-/x/pro/v1/settings/symbols>
 
-## 数字货币介绍
+## 本地配置
 
-<https://www.huobi.com/p/api/contents/pro/single_page>
+`crontab -e` 按下面的格式编辑 cronjob，地址和 shell 自行调整（我本地是 zsh）。
 
+```
+* 10-15 * * * cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+* 10-15 * * * sleep 10;cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+* 10-15 * * * sleep 20;cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+* 10-15 * * * sleep 30;cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+* 10-15 * * * sleep 40;cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+* 10-15 * * * sleep 50;cd ~/Documents/workspace/ruochenlyu.github.io/huobi_cron && /bin/zsh ./main.sh
+```
