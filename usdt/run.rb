@@ -15,11 +15,13 @@ else
   base_price = CSV.open('data.csv').readlines[-1][3]
 end
 
-CSV.open('data.csv', 'a+') do |csv|
-  csv << [
-    DateTime.parse(DateTime.now.strftime("%Y-%m-%dT%H:%M%z")),
-    buy_price,
-    sell_price,
-    base_price
-  ]
+if buy_price > 2
+  CSV.open('data.csv', 'a+') do |csv|
+    csv << [
+      DateTime.parse(DateTime.now.strftime("%Y-%m-%dT%H:%M%z")),
+      buy_price,
+      sell_price,
+      base_price
+    ]
+  end
 end
