@@ -6,5 +6,5 @@ currency=`/usr/local/bin/python ./peep.py`
 
 if [ ${currency} ];then
   echo ${currency} > temp.txt
-  ruby ~/Documents/hadax_demo/open_a_position.rb ${HUOBI_KEY} ${HUOBI_SECRET} ${HUOBI_ID} 'btc' ${currency} 0.001 market
+  ruby ~/Documents/hadax_demo/open_a_position.rb ${HUOBI_KEY} ${HUOBI_SECRET} ${HUOBI_ID} 'btc' ${currency} 0.1 market
 fi

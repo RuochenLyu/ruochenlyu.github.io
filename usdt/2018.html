@@ -14,12 +14,9 @@
 
 <body>
   <div id="container"></div>
-  <div class="footer">
-    <a href="./2018.html">2018 年数据</a>
-  </div>
   <script>
   $.ajax({
-    url: './data.csv',
+    url: './data_2018.csv',
     success: function(csv) {
       Highcharts.chart('container', {
         chart: {

@@ -2,8 +2,8 @@ require 'csv'
 require 'json'
 require 'date'
 
-response_buy = `curl --request GET --url 'https://otc-api.huobipro.com/v1/otc/trade/list/public?country=37&currency=1&payMethod=0&currPage=1&coinId=2&tradeType=1&merchant=1&online=1' --header 'Cache-Control: no-cache'`
-response_sell = `curl --request GET --url 'https://otc-api.huobipro.com/v1/otc/trade/list/public?country=37&currency=1&payMethod=0&currPage=1&coinId=2&tradeType=0&merchant=1&online=1' --header 'Cache-Control: no-cache'`
+response_buy = `curl --request GET --url 'https://otc-api.eiijo.cn/v1/data/trade-market?coinId=2&currency=1&tradeType=buy&currPage=1&payMethod=0&country=37&blockType=general&online=1' --header 'Cache-Control: no-cache'`
+response_sell = `curl --request GET --url 'https://otc-api.eiijo.cn/v1/data/trade-market?coinId=2&currency=1&tradeType=sell&currPage=1&payMethod=0&country=37&blockType=general&online=1' --header 'Cache-Control: no-cache'`
 buy_price = JSON.parse(response_buy)['data'][0]['price']
 sell_price = JSON.parse(response_sell)['data'][0]['price']
 base_price = nil
