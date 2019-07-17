@@ -2,6 +2,6 @@
 source ~/.zshrc
 
 ruby ./usdt/run.rb
-git pull --rebase
 git commit -am "update data.csv $(date '+%Y-%m-%d %H:%M:%S')"
+git pull --rebase
 git push
