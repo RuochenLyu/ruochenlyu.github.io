@@ -13,7 +13,7 @@ city_list = [
 ]
 
 city_list.each do |city|
-  data = `curl --request GET --url 'https://busi.supermonkey.com.cn/wxClass/getClassSelectList3?city=#{city}' --header 'Cache-Control: no-cache'`
+  data = `curl --request GET --url 'https://busi.supermonkey.com.cn/wxClass/getClassSelectList4?city=#{city}' --header 'Cache-Control: no-cache'`
 
   File.open("#{city}.json", 'w') do |f|
     f.write(data)
