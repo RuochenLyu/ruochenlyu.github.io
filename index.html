@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>kshift — ⇧</title>
+    <meta name="description" content="kshift — a website that only knows one trick: ⇧" />
+    <meta name="author" content="kshift" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kshift.me/" />
+
+    <meta name="theme-color" content="#f1e9d9" />
+
+    <!-- avoid theme flash: decide day/night before first paint -->
+    <script>
+      try {
+        var t = localStorage.getItem("kshift-theme");
+        var night = t === "night" || (!t && matchMedia("(prefers-color-scheme: dark)").matches);
+        if (night) document.documentElement.classList.add("night");
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = night ? "#16130d" : "#f1e9d9";
+      } catch (e) {}
+    </script>
+
+    <!-- social / share card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="kshift" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="kshift — ⇧" />
+    <meta property="og:description" content="a website that only knows one trick: ⇧" />
+    <meta property="og:url" content="https://kshift.me/" />
+    <meta property="og:image" content="https://kshift.me/assets/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="kshift — a website that only knows one trick" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kshift" />
+    <meta name="twitter:creator" content="@kshift" />
+    <meta name="twitter:title" content="kshift — ⇧" />
+    <meta name="twitter:description" content="a website that only knows one trick: ⇧" />
+    <meta name="twitter:image" content="https://kshift.me/assets/og.jpg" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="avatar.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+
+  <body>
+    <!-- decorative shift-field -->
+    <canvas class="field" data-field aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <main class="stage">
+      <h1 class="title" data-text="kshift" data-shift title="press ⇧ — or tap me">kshift</h1>
+
+      <p class="tagline">a website that only knows <em>one</em> trick.</p>
+
+      <a class="sign" href="https://x.com/kshift" rel="me noopener" target="_blank">
+        <img class="sign__face" src="assets/avatar-day.jpg" alt="" width="80" height="80" decoding="async" />
+        <span class="sign__handle"><span class="sign__at">@</span>kshift</span>
+      </a>
+    </main>
+
+    <p class="hint" data-hint aria-hidden="true">
+      <kbd data-hint-key>⇧</kbd>
+      <span data-hint-label>press shift</span>
+    </p>
+
+    <script src="assets/js/site.js" defer></script>
+  </body>
+</html>

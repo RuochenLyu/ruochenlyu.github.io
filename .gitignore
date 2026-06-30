@@ -1,0 +1,5 @@
+usdt/schedule/
+*.log
+huobipro_notice/itchat.pkl
+huobipro_notice/notice.json
+.DS_Store

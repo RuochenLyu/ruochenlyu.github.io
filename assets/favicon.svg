@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="kshift">
+  <!-- risograph misregistration shadow -->
+  <rect x="11" y="13" width="46" height="44" rx="11" fill="#ff5b45"/>
+  <!-- keycap skirt -->
+  <rect x="7" y="9" width="46" height="44" rx="11" fill="#18150f"/>
+  <!-- keycap top face -->
+  <rect x="10" y="8" width="40" height="36" rx="9" fill="#c7f23b" stroke="#18150f" stroke-width="2.5"/>
+  <!-- shift glyph -->
+  <path d="M30 14 L44 26 L37.5 26 L37.5 37 L22.5 37 L22.5 26 L16 26 Z"
+        fill="#18150f" stroke="#18150f" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
