@@ -3,11 +3,53 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>kshift — ⇧</title>
-    <meta name="description" content="kshift — a website that only knows one trick: ⇧" />
+    <title>kshift — Independent Developer</title>
+    <meta
+      name="description"
+      content="The personal homepage of kshift, independent developer and creator of Meikyu and RayTally."
+    />
     <meta name="author" content="kshift" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://kshift.me/" />
+    <link rel="me" href="https://x.com/kshift" />
+    <link rel="me" href="https://github.com/RuochenLyu" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://kshift.me/#profile",
+            "url": "https://kshift.me/",
+            "name": "kshift",
+            "mainEntity": {
+              "@id": "https://kshift.me/#person"
+            },
+            "isPartOf": {
+              "@id": "https://kshift.me/#website"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://kshift.me/#person",
+            "name": "kshift",
+            "url": "https://kshift.me/",
+            "image": "https://kshift.me/assets/avatar-day.png",
+            "sameAs": ["https://x.com/kshift", "https://github.com/RuochenLyu"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kshift.me/#website",
+            "url": "https://kshift.me/",
+            "name": "kshift",
+            "creator": {
+              "@id": "https://kshift.me/#person"
+            }
+          }
+        ]
+      }
+    </script>
 
     <meta name="theme-color" content="#f1e9d9" />
 
@@ -26,8 +68,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="kshift" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="kshift — ⇧" />
-    <meta property="og:description" content="a website that only knows one trick: ⇧" />
+    <meta property="og:title" content="kshift — Independent Developer" />
+    <meta
+      property="og:description"
+      content="The personal homepage of kshift, independent developer and creator of Meikyu and RayTally."
+    />
     <meta property="og:url" content="https://kshift.me/" />
     <meta property="og:image" content="https://kshift.me/assets/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -36,9 +81,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@kshift" />
     <meta name="twitter:creator" content="@kshift" />
-    <meta name="twitter:title" content="kshift — ⇧" />
-    <meta name="twitter:description" content="a website that only knows one trick: ⇧" />
+    <meta name="twitter:title" content="kshift — Independent Developer" />
+    <meta
+      name="twitter:description"
+      content="The personal homepage of kshift, independent developer and creator of Meikyu and RayTally."
+    />
     <meta name="twitter:image" content="https://kshift.me/assets/og.jpg" />
+    <meta name="twitter:image:alt" content="kshift — independent developer" />
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="avatar.jpg" />
@@ -66,7 +115,7 @@
       <p class="tagline">a website that only knows <em>one</em> trick.</p>
 
       <a class="sign" href="https://x.com/kshift" rel="me noopener" target="_blank">
-        <img class="sign__face" src="assets/avatar-day.jpg" alt="" width="80" height="80" decoding="async" />
+        <img class="sign__face" src="assets/avatar-day.png" alt="" width="80" height="80" decoding="async" />
         <span class="sign__handle"><span class="sign__at">@</span>kshift</span>
       </a>
     </main>
